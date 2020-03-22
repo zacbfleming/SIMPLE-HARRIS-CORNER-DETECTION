@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-simA = cv2.imread('/home/artichoke/A_Udacity/Computer Vision/ps4/input/check.bmp')
-transA = cv2.imread('/home/artichoke/A_Udacity/Computer Vision/ps4/input/check_rot.bmp')
+simA = cv2.imread('/check.bmp')
+transA = cv2.imread('/check_rot.bmp')
 
 ###Add gaussian blur
 def AddG(img):
