@@ -2,8 +2,11 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-simA = cv2.imread('check.bmp')
-transA = cv2.imread('check_rot.bmp')
+def sho(title, check):
+    cv2.imshow(title, check)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()  
+    
 ###Add gaussian blur
 def AddG(img):
     GB = cv2.GaussianBlur(img, (3,3), 9, 9)
@@ -30,34 +33,25 @@ def H(img):
     return dst2
 
 def main():
-    cv2.imshow('Check.bmp', simA)
-    cv2.imshow('Check_rot.bmp', transA)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()  
+    simA = cv2.imread('check.bmp')
+    transA = cv2.imread('check_rot.bmp')
+    sho('Check.bmp', simA)
+    sho('Check rot', transA)
+
     img = AddG(simA)
     img2 = AddG(transA)
-    cv2.imshow('check with Gaussian Blur', img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-    cv2.imshow('rot with Gaussian Blur', img2)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    sho('check with Gaussian Blur', img)
+    sho('rot with Gaussian Blur', img2)
     i = xygrad(img)
-    cv2.imshow('CheckSobelX', i[0])
-    cv2.imshow('checkSobelY', i[1])
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    sho('CheckSobelX', i[0])
+    sho('checkSobelY', i[1])
     i2 = xygrad(img2)
-    cv2.imshow('c_rotSobelX', i2[0])
-    cv2.imshow('ch_rotSobelY', i2[1])
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    sho('c_rotSobelX', i2[0])
+    sho('ch_rotSobelY', i2[1])
     image = H(img)
     image2 = H(img2)
-    cv2.imshow('check.bmp', image)
-    cv2.imshow('check_rot.bmp', image2)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    sho('check.bmp', image)
+    sho('check_rot.bmp', image2)
     exit()
 
 if __name__ == "__main__":
