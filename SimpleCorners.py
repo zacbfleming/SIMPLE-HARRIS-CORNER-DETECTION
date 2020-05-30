@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-def sho(title, check):
-    cv2.imshow(title, check)
+def sho(pic, check):
+    cv2.imshow(pic, check)
     cv2.waitKey(0)
     cv2.destroyAllWindows()  
     
